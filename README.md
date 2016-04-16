@@ -2,7 +2,7 @@
 
 Welcome to Lmsensorsbeat.  This Beat strives to pull data from lm-sensors so that you can monitor a variety of I2C/SMBus sensors, such as CPU/motherboard temperatures, fan speeds, voltages, etc.  To run this, you may need to:
 
- 1. Install the lm-sensors library for your distribution
+ 1. Install the lm-sensors library and headers (e.g. libsensors4-dev) for your distribution
  2. Load (modprobe) various kernel modules for your sensors if you don't already.  Once you install lm-sensors, you can usually do this automatically by running the "sensors-detect" command
 
 Ensure that this folder is at the following location:
