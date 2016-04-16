@@ -7,3 +7,5 @@ import:
   - libbeat/cfgfile
   - libbeat/common
   - libbeat/logp
+- package: github.com/eskibars/gosensors
+  version: 9ae18da104c998f3515b03f115dddf29e73bd193
