@@ -78,9 +78,9 @@ func (bt *Lmsensorsbeat) Run(b *beat.Beat) error {
 		case <-ticker.C:
 		}
 
-		var sensorMap []common.MapStr
+		var sensorMap common.MapStr
 		for i := 0; i < len(bt.sensors); i++ {
-			sensorMap = append(sensorMap, common.MapStr { bt.sensors[i].Name: bt.sensors[i].GetValue() })
+			sensorMap = common.MapStrUnion(sensorMap, common.MapStr { bt.sensors[i].Name: bt.sensors[i].GetValue() })
 		}
 		event := common.MapStr{
 			"@timestamp": common.Time(time.Now()),
