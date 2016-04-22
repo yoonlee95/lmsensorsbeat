@@ -1,0 +1,79 @@
+version: 1.0
+
+defaults:
+  type: float
+  required: false
+  doc_values: true
+  index: true
+  ignore_above: 1024
+
+common:
+  type: group
+  description: >
+    Contains common fields available in all lmsensors pulls.
+  fields:
+    - name: "@timestamp"
+      type: date
+      required: true
+      format: YYYY-MM-DDTHH:MM:SS.milliZ
+      example: 2015-01-24T14:06:05.071Z
+      description: >
+        The timestamp of when the measurements were taken. The precision is in milliseconds.
+        The timezone is UTC.
+
+    - name: type
+      type: string
+      index: not_analyzed
+      description: >
+        Set to "lmsensors" to indicate that the statistics come from this service.
+      required: true
+
+    - name: beat.name
+      type: string
+      index: not_analyzed
+      description: >
+        Name of the Beat sending the events. If the shipper name is set
+        in the configuration file, then that value is used. If it is not set,
+        the hostname is used.
+
+    - name: beat.hostname
+      type: string
+      index: not_analyzed
+      description: >
+        The hostname as returned by the operating system on which the Beat is
+        running.
+
+temp:
+  type: group
+  description: >
+    Contains sensor data from temperature sensors
+  fields:
+    - name: temp1
+      type: float
+      path: sensors.temp1
+      description: >
+        The value of the temp1 sensor (typically in degrees Celsius)
+    - name: temp2
+      type: float
+      path: sensors.temp2
+      description: >
+        The value of the temp2 sensor (typically in degrees Celsius)
+    - name: temp3
+      type: float
+      path: sensors.temp3
+      description: >
+        The value of the temp3 sensor (typically in degrees Celsius)
+    - name: temp4
+      type: float
+      path: sensors.temp4
+      description: >
+        The value of the temp4 sensor (typically in degrees Celsius)
+    - name: temp5
+      type: float
+      path: sensors.temp5
+      description: >
+        The value of the temp5 sensor (typically in degrees Celsius)
+
+sections:
+  - ["common", "Common"]
+  - ["temp", "Temperature"]

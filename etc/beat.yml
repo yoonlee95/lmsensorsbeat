@@ -1,0 +1,3 @@
+lmsensorsbeat:
+  # Defines how often sensor data is are sent to the output
+  period: 1s

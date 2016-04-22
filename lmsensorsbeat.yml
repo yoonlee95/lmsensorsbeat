@@ -3,7 +3,7 @@
 ############################# Lmsensorsbeat ######################################
 
 lmsensorsbeat:
-  # Defines how often an event is sent to the output
+  # Defines how often sensor data is sent to the output
   period: 1s
 ###############################################################################
 ############################# Libbeat Config ##################################
