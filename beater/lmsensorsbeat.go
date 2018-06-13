@@ -80,7 +80,7 @@ func (bt *Lmsensorsbeat) Run(b *beat.Beat) error {
 
 		var sensorMap common.MapStr
 		for i := 0; i < len(bt.sensors); i++ {
-			sensorMap = common.MapStrUnion(sensorMap, common.MapStr { bt.sensors[i].Name: bt.sensors[i].GetValue() })
+			sensorMap = common.MapStrUnion(sensorMap, common.MapStr { bt.sensors[i].Name +"("+ bt.sensors[i].GetLabel() +")": bt.sensors[i].GetValue() })
 		}
 		event := common.MapStr{
 			"@timestamp": common.Time(time.Now()),
